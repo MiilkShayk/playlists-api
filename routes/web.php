@@ -10,24 +10,12 @@ use App\Http\Controllers\AuthController;
 
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 // Login(Auth)
 
-//TEste 
 Route::get('loginPage', [AuthController::class, 'loginPage'])->name('loginPage');
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::middleware('auth:api')->group(function () {
-    // Rotas protegidas pelo middleware de autenticação JWT
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user', [AuthController::class, 'getUser']);
