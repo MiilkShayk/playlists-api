@@ -11,8 +11,7 @@ use App\Http\Controllers\AuthController;
 
 
 
-// Login(Auth)
-
+//>>> Login(Auth)
 Route::get('loginPage', [AuthController::class, 'loginPage'])->name('loginPage');
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::middleware('auth:api')->group(function () {
